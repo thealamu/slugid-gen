@@ -2,14 +2,9 @@ import string
 import sys
 from random import choice
 
-sample_space = [c for c in string.ascii_letters] + [str(n) for n in range(10)]
 
-
-def create_slug_id(length: int):
-    slug_id = ""
-    for _ in range(length):
-        slug_id += choice(sample_space)
-    return slug_id
+def create_slug_id(length, sample_space=string.ascii_letters + string.digits):
+    return "".join([choice(sample_space) for _ in range(length)])
 
 
 if __name__ == "__main__":
